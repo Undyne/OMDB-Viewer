@@ -14,6 +14,12 @@
 		C9848E952BC84B86008DF4D6 /* OMDB_ViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848E942BC84B86008DF4D6 /* OMDB_ViewerTests.swift */; };
 		C9848E9F2BC84B86008DF4D6 /* OMDB_ViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848E9E2BC84B86008DF4D6 /* OMDB_ViewerUITests.swift */; };
 		C9848EA12BC84B86008DF4D6 /* OMDB_ViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848EA02BC84B86008DF4D6 /* OMDB_ViewerUITestsLaunchTests.swift */; };
+		C9848EAF2BC84D2D008DF4D6 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C9848EAE2BC84D2D008DF4D6 /* SDWebImageSwiftUI */; };
+		C9848EB52BC85B4B008DF4D6 /* NetworkAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848EB42BC85B4B008DF4D6 /* NetworkAccess.swift */; };
+		C9848EB82BC85BA3008DF4D6 /* OMDBResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848EB72BC85BA3008DF4D6 /* OMDBResponse.swift */; };
+		C9848EBA2BC8626A008DF4D6 /* APIKey.example.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848EB92BC8626A008DF4D6 /* APIKey.example.swift */; };
+		C9848EBC2BC862BF008DF4D6 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848EBB2BC862BF008DF4D6 /* APIKey.swift */; };
+		C9848EBE2BC863D8008DF4D6 /* NetworkAccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848EBD2BC863D8008DF4D6 /* NetworkAccessTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,11 @@
 		C9848E9A2BC84B86008DF4D6 /* OMDB ViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "OMDB ViewerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9848E9E2BC84B86008DF4D6 /* OMDB_ViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDB_ViewerUITests.swift; sourceTree = "<group>"; };
 		C9848EA02BC84B86008DF4D6 /* OMDB_ViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDB_ViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C9848EB42BC85B4B008DF4D6 /* NetworkAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAccess.swift; sourceTree = "<group>"; };
+		C9848EB72BC85BA3008DF4D6 /* OMDBResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDBResponse.swift; sourceTree = "<group>"; };
+		C9848EB92BC8626A008DF4D6 /* APIKey.example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.example.swift; sourceTree = "<group>"; };
+		C9848EBB2BC862BF008DF4D6 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		C9848EBD2BC863D8008DF4D6 /* NetworkAccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAccessTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9848EAF2BC84D2D008DF4D6 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				C9848E832BC84B84008DF4D6 /* OMDB_ViewerApp.swift */,
+				C9848EB62BC85B8A008DF4D6 /* Model */,
+				C9848EB32BC85B3B008DF4D6 /* Utilities */,
 				C9848E852BC84B84008DF4D6 /* ContentView.swift */,
 				C9848E872BC84B86008DF4D6 /* Assets.xcassets */,
 				C9848E892BC84B86008DF4D6 /* Preview Content */,
@@ -114,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				C9848E942BC84B86008DF4D6 /* OMDB_ViewerTests.swift */,
+				C9848EBD2BC863D8008DF4D6 /* NetworkAccessTests.swift */,
 			);
 			path = "OMDB ViewerTests";
 			sourceTree = "<group>";
@@ -125,6 +140,24 @@
 				C9848EA02BC84B86008DF4D6 /* OMDB_ViewerUITestsLaunchTests.swift */,
 			);
 			path = "OMDB ViewerUITests";
+			sourceTree = "<group>";
+		};
+		C9848EB32BC85B3B008DF4D6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C9848EB42BC85B4B008DF4D6 /* NetworkAccess.swift */,
+				C9848EB92BC8626A008DF4D6 /* APIKey.example.swift */,
+				C9848EBB2BC862BF008DF4D6 /* APIKey.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C9848EB62BC85B8A008DF4D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9848EB72BC85BA3008DF4D6 /* OMDBResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +176,9 @@
 			dependencies = (
 			);
 			name = "OMDB Viewer";
+			packageProductDependencies = (
+				C9848EAE2BC84D2D008DF4D6 /* SDWebImageSwiftUI */,
+			);
 			productName = "OMDB Viewer";
 			productReference = C9848E802BC84B84008DF4D6 /* OMDB Viewer.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +251,9 @@
 				Base,
 			);
 			mainGroup = C9848E772BC84B84008DF4D6;
+			packageReferences = (
+				C9848EAD2BC84D2D008DF4D6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = C9848E812BC84B84008DF4D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,7 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9848EB52BC85B4B008DF4D6 /* NetworkAccess.swift in Sources */,
+				C9848EBA2BC8626A008DF4D6 /* APIKey.example.swift in Sources */,
 				C9848E862BC84B84008DF4D6 /* ContentView.swift in Sources */,
+				C9848EB82BC85BA3008DF4D6 /* OMDBResponse.swift in Sources */,
+				C9848EBC2BC862BF008DF4D6 /* APIKey.swift in Sources */,
 				C9848E842BC84B84008DF4D6 /* OMDB_ViewerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9848EBE2BC863D8008DF4D6 /* NetworkAccessTests.swift in Sources */,
 				C9848E952BC84B86008DF4D6 /* OMDB_ViewerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -404,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -481,7 +525,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LZJU7SVX4N;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.game-writers.OMDB-ViewerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,7 +545,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LZJU7SVX4N;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.game-writers.OMDB-ViewerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -588,6 +632,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C9848EAD2BC84D2D008DF4D6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C9848EAE2BC84D2D008DF4D6 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9848EAD2BC84D2D008DF4D6 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C9848E782BC84B84008DF4D6 /* Project object */;
 }
