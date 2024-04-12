@@ -8,7 +8,8 @@
 import Foundation
 
 enum ServerError: Error {
-    case error
+    case urlError
+    case serverError
 }
 
 class NetworkAccess {
@@ -24,43 +25,32 @@ class NetworkAccess {
     
     var baseURL: String = "https://www.omdbapi.com/"
     
-    func getMovies(parameters: [String:String],  completion: @escaping (Result<OMDBResponse, Error>) -> ()) {
+    func getMovies(parameters: [String:String]) async throws -> OMDBResponse {
         print("running getMovies")
         
         var queryItems = parameters.compactMap { URLQueryItem(name: $0.key, value: $0.value) }
         queryItems.append(URLQueryItem(name: "apikey", value: apiKey))
         
         guard var urlComponents = URLComponents(string: baseURL) else {
-            print("Unable to form URL. Exiting via guard")
-            return
+            throw ServerError.urlError
         }
         urlComponents.queryItems = queryItems
-        
+
         guard let url = urlComponents.url else {
-            print("Unable to form URL. Exiting via guard")
-            return
+            throw ServerError.urlError
         }
 
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
+        let (data, response) = try await URLSession.shared.data(from: url)
         
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            print("getMovies closure running")
-            if let jsonData = data
-            {
-                let decoder = JSONDecoder()
-                decoder.dateDecodingStrategy = .iso8601
-                
-                do {
-                    print("Server response:  \(String(data: jsonData, encoding: .utf8) ?? "nil")")
-                    let serverResponse = try decoder.decode(OMDBResponse.self, from: jsonData)
-                    completion(.success(serverResponse))
-                } catch {
-                    completion(.failure(error))
-                }
-            } else {
-                completion(.failure(error ?? ServerError.error))
-            }
-        }.resume()
+        guard let httpResponse = response as? HTTPURLResponse,
+              httpResponse.statusCode == 200 else {
+            throw ServerError.serverError
+        }
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        print("Server response:  \(String(data: data, encoding: .utf8) ?? "nil")")
+        let serverResponse = try decoder.decode(OMDBResponse.self, from: data)
+        return serverResponse
     }
 }

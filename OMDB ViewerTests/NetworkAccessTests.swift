@@ -12,23 +12,9 @@ final class NetworkAccessTests: XCTestCase {
 
     let timeout = 10.0
 
-    func testGetMovies() throws {
-        let expectation = XCTestExpectation(description: "Response should return Guardians of the Galaxy Vol.2")
-        
-        NetworkAccess.shared.getMovies(parameters: ["i" : "tt3896198"], completion: { result in
-            switch result {
-            case .success(let data):
-                print("\(data)")
-                if data.imdbID == "tt3896198" {
-                    expectation.fulfill()
-                } else {
-                    XCTFail("Data did not match")
-                }
-            case .failure(let error):
-                XCTFail(error.localizedDescription)
-            }
-        })
-
-        wait(for: [expectation], timeout: timeout)
+    func testGetMovies() async throws {
+        let data = try await NetworkAccess.shared.getMovies(parameters: ["i" : "tt3896198"])
+        print("\(data)")
+        XCTAssertEqual(data.imdbID, "tt3896198")
     }
 }
