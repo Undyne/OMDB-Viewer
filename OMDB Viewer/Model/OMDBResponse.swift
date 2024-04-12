@@ -30,6 +30,30 @@ struct SearchResult: Codable {
         self.type = try container.decode(String.self, forKey: .type)
         self.poster = try container.decode(String.self, forKey: .poster)
     }
+    
+    init(title: String,
+         year: String,
+         imdbID: String,
+         type: String,
+         poster: String) {
+        self.title = title
+        self.year = year
+        self.imdbID = imdbID
+        self.type = type
+        self.poster = poster
+    }
+    
+    static var sharedSearchExamples: [SearchResult] {
+        [SearchResult.sharedSearchExample,
+         SearchResult(title: "Avengers: Endgame", year: "2019", imdbID: "tt4154796", type: "movie", poster: "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg"),
+         SearchResult(title: "Avengers: Infinity War", year: "2018", imdbID: "tt4154756", type: "movie", poster: "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"),
+         SearchResult(title: "Avengers: Age of Ultron", year: "2015", imdbID: "tt2395427", type: "movie", poster: "https://m.media-amazon.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg"),
+        ]
+    }
+    
+    static var sharedSearchExample: SearchResult {
+        SearchResult(title: "The Avengers", year: "2012", imdbID: "tt0848228", type: "movie", poster: "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg")
+    }
 }
 
 struct Rating: Codable {
@@ -45,6 +69,11 @@ struct Rating: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.source = try container.decode(String.self, forKey: .source)
         self.value = try container.decode(String.self, forKey: .value)
+    }
+    
+    init(source: String, value: String) {
+        self.source = source
+        self.value = value
     }
 }
 
@@ -144,5 +173,90 @@ struct OMDBResponse: Codable {
         
         let responseString = try container.decode(String.self, forKey: .response)
         self.response = responseString == "True"
+    }
+    
+    init(search: [SearchResult]? = nil,
+         title: String? = nil,
+         year: String? = nil,
+         rated: String? = nil,
+         released: String? = nil,
+         runtime: String? = nil,
+         genre: String? = nil,
+         director: String? = nil,
+         writer: String? = nil,
+         actors: String? = nil,
+         plot: String? = nil,
+         language: String? = nil,
+         country: String? = nil,
+         awards: String? = nil,
+         poster: String? = nil,
+         ratings: [Rating]? = nil,
+         metascore: String? = nil,
+         imdbRating: String? = nil,
+         imdbVotes: String? = nil,
+         imdbID: String? = nil,
+         type: String? = nil,
+         dvd: String? = nil,
+         boxOffice: String? = nil,
+         production: String? = nil,
+         website: String? = nil,
+         totalResults: Int? = nil
+    ) {
+        self.search = search
+        self.title = title
+        self.year = year
+        self.rated = rated
+        self.released = released
+        self.runtime = runtime
+        self.genre = genre
+        self.director = director
+        self.writer = writer
+        self.actors = actors
+        self.plot = plot
+        self.language = language
+        self.country = country
+        self.awards = awards
+        self.poster = poster
+        self.ratings = ratings
+        self.metascore = metascore
+        self.imdbRating = imdbRating
+        self.imdbVotes = imdbVotes
+        self.imdbID = imdbID
+        self.type = type
+        self.dvd = dvd
+        self.boxOffice = boxOffice
+        self.production = production
+        self.website = website
+        self.totalResults = totalResults
+        self.response = true
+    }
+    
+    static var sharedMovieExample: OMDBResponse {
+        OMDBResponse(title: "Guardians of the Galaxy Vol. 2",
+                     year: "2017",
+                     rated: "PG-13",
+                     released: "05 May 2017",
+                     runtime: "136 min",
+                     genre: "Action, Adventure, Comedy",
+                     director: "James Gunn",
+                     writer: "James Gunn, Dan Abnett, Andy Lanning",
+                     actors: "Chris Pratt, Zoe Saldana, Dave Bautista",
+                     plot: "The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord's encounter with his father, the ambitious celestial being Ego.",
+                     language: "English",
+                     country: "United States",
+                     awards: "Nominated for 1 Oscar. 15 wins & 60 nominations total",
+                     poster: "https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg",
+                     ratings: [Rating(source: "Internet Movie Database", value: "7.6/10"),
+                               Rating(source: "Rotten Tomatoes", value: "85%"),
+                               Rating(source: "Metacritic", value: "67/100")],
+                     metascore: "67",
+                     imdbRating: "7.6",
+                     imdbVotes: "757,026",
+                     imdbID: "tt3896198",
+                     type: "movie",
+                     dvd: "10 Jul 2017",
+                     boxOffice: "$389,813,101",
+                     production: "N/A",
+                     website: "N/A")
     }
 }
