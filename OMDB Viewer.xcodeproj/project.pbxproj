@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C933FAEB2BC9A97E00BB43E8 /* SearchListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C933FAEA2BC9A97E00BB43E8 /* SearchListViewModel.swift */; };
 		C933FAED2BCB111700BB43E8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C933FAEC2BCB111700BB43E8 /* LoadingView.swift */; };
+		C933FAF12BCBAEF300BB43E8 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C933FAF02BCBAEF300BB43E8 /* DetailsView.swift */; };
+		C933FAF32BCBAF0600BB43E8 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C933FAF22BCBAF0600BB43E8 /* DetailsViewModel.swift */; };
+		C933FAF52BCBB18900BB43E8 /* BlankPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = C933FAF42BCBB18900BB43E8 /* BlankPoster.swift */; };
 		C9848E842BC84B84008DF4D6 /* OMDB_ViewerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848E832BC84B84008DF4D6 /* OMDB_ViewerApp.swift */; };
 		C9848E862BC84B84008DF4D6 /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9848E852BC84B84008DF4D6 /* SearchListView.swift */; };
 		C9848E882BC84B86008DF4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9848E872BC84B86008DF4D6 /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		C933FAEA2BC9A97E00BB43E8 /* SearchListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModel.swift; sourceTree = "<group>"; };
 		C933FAEC2BCB111700BB43E8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		C933FAF02BCBAEF300BB43E8 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		C933FAF22BCBAF0600BB43E8 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		C933FAF42BCBB18900BB43E8 /* BlankPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankPoster.swift; sourceTree = "<group>"; };
 		C9848E802BC84B84008DF4D6 /* OMDB Viewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OMDB Viewer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9848E832BC84B84008DF4D6 /* OMDB_ViewerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMDB_ViewerApp.swift; sourceTree = "<group>"; };
 		C9848E852BC84B84008DF4D6 /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
@@ -97,6 +103,15 @@
 				C9D7A2C02BC8ED5500DFFA80 /* SearchListCellView.swift */,
 			);
 			path = SearchListView;
+			sourceTree = "<group>";
+		};
+		C933FAEF2BCBAEC200BB43E8 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				C933FAF02BCBAEF300BB43E8 /* DetailsView.swift */,
+				C933FAF22BCBAF0600BB43E8 /* DetailsViewModel.swift */,
+			);
+			path = DetailsView;
 			sourceTree = "<group>";
 		};
 		C9848E772BC84B84008DF4D6 = {
@@ -180,7 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				C933FAEC2BCB111700BB43E8 /* LoadingView.swift */,
+				C933FAF42BCBB18900BB43E8 /* BlankPoster.swift */,
 				C933FAEE2BCBAB5100BB43E8 /* SearchListView */,
+				C933FAEF2BCBAEC200BB43E8 /* DetailsView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -322,12 +339,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9848EB52BC85B4B008DF4D6 /* NetworkAccess.swift in Sources */,
+				C933FAF12BCBAEF300BB43E8 /* DetailsView.swift in Sources */,
 				C9848EBA2BC8626A008DF4D6 /* APIKey.example.swift in Sources */,
 				C933FAEB2BC9A97E00BB43E8 /* SearchListViewModel.swift in Sources */,
 				C9848E862BC84B84008DF4D6 /* SearchListView.swift in Sources */,
 				C9848EB82BC85BA3008DF4D6 /* OMDBResponse.swift in Sources */,
 				C9D7A2C12BC8ED5500DFFA80 /* SearchListCellView.swift in Sources */,
+				C933FAF32BCBAF0600BB43E8 /* DetailsViewModel.swift in Sources */,
 				C9848EBC2BC862BF008DF4D6 /* APIKey.swift in Sources */,
+				C933FAF52BCBB18900BB43E8 /* BlankPoster.swift in Sources */,
 				C9848E842BC84B84008DF4D6 /* OMDB_ViewerApp.swift in Sources */,
 				C933FAED2BCB111700BB43E8 /* LoadingView.swift in Sources */,
 			);

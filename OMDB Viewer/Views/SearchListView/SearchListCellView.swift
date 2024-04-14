@@ -22,14 +22,15 @@ struct SearchListCellView: View {
                     .scaledToFit()
                     .frame(width: 70, height: 100)
             } else {
-                blankPoster
+                BlankPoster()
             }
             
             VStack(alignment: .leading, spacing: 10) {
                 Text(movie.title)
-                    .bold()
+                    .foregroundStyle(.black)
                     .font(.headline)
                 Text("Released: \(movie.year)")
+                    .foregroundStyle(.black)
                     .font(.body)
                 
                 Button(action: {
@@ -45,17 +46,6 @@ struct SearchListCellView: View {
             }
             Spacer()
         }
-    }
-    
-    var blankPoster: some View {
-        Image(systemName: "photo.artframe")
-            .foregroundColor(.gray)
-            .imageScale(.large)
-            .frame(width: 70, height: 100)
-            .overlay( /// apply a rounded border
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(.gray, lineWidth: 1)
-            )
     }
 }
 

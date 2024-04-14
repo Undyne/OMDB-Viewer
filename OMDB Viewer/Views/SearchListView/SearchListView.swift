@@ -51,12 +51,15 @@ struct SearchListView: View {
         ScrollView(.vertical) {
             LazyVStack {
                 ForEach(viewModel.results, id:\.self) { movie in
-                    SearchListCellView(movie: movie)
-                        .onAppear() {
-                            if movie.imdbID == viewModel.results.last?.imdbID {
-                                viewModel.loadNextPage()
+                    NavigationLink(destination: DetailsView(viewModel: DetailsViewModel(searchResult: movie))) {
+                        SearchListCellView(movie: movie)
+                            .onAppear() {
+                                if movie.imdbID == viewModel.results.last?.imdbID {
+                                    viewModel.loadNextPage()
+                                }
                             }
-                        }
+
+                    }
                 }
             }
         }

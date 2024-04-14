@@ -57,7 +57,7 @@ struct SearchResult: Codable, Hashable {
     }
 }
 
-struct Rating: Codable {
+struct Rating: Codable, Hashable {
     let source: String
     let value: String
     
