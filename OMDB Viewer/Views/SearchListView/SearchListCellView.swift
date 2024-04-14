@@ -14,19 +14,24 @@ struct SearchListCellView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            WebImage(url: URL(string: movie.poster))
-            .resizable()
-            .indicator(.activity)
-            .scaledToFit()
-            .frame(width: 100, height: 150)
-
+            
+            if let poster = movie.poster {
+                WebImage(url: URL(string: poster))
+                    .resizable()
+                    .indicator(.activity)
+                    .scaledToFit()
+                    .frame(width: 70, height: 100)
+            } else {
+                blankPoster
+            }
+            
             VStack(alignment: .leading, spacing: 10) {
                 Text(movie.title)
                     .bold()
-                    .font(.title)
+                    .font(.headline)
                 Text("Released: \(movie.year)")
-                    .font(.title3)
-
+                    .font(.body)
+                
                 Button(action: {
                     pressed.toggle()
                 }, label: {
@@ -36,16 +41,23 @@ struct SearchListCellView: View {
                         .frame(width: 20, height: 20)
                         .padding([.trailing, .bottom], 20)  // This is to increase the bounding box size of the button to 40x40
                 })
-
+                
             }
-            
-            
             Spacer()
         }
-        .padding()
+    }
+    
+    var blankPoster: some View {
+        Image(systemName: "photo.artframe")
+            .foregroundColor(.gray)
+            .imageScale(.large)
+            .frame(width: 70, height: 100)
+            .overlay( /// apply a rounded border
+                RoundedRectangle(cornerRadius: 5)
+                    .stroke(.gray, lineWidth: 1)
+            )
     }
 }
-
 
 #Preview {
     VStack {

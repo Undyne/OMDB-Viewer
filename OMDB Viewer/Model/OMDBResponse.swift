@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct SearchResult: Codable {
+struct SearchResult: Codable, Hashable {
     let title: String
     let year: String
     let imdbID: String
     let type: String
-    let poster: String
+    let poster: String?
     
     enum CodingKeys: String, CodingKey {
         case title = "Title"
@@ -28,7 +28,8 @@ struct SearchResult: Codable {
         self.year = try container.decode(String.self, forKey: .year)
         self.imdbID = try container.decode(String.self, forKey: .imdbID)
         self.type = try container.decode(String.self, forKey: .type)
-        self.poster = try container.decode(String.self, forKey: .poster)
+        let poster = try? container.decode(String.self, forKey: .poster)
+        self.poster = poster == "N/A" ? nil : poster
     }
     
     init(title: String,
@@ -153,7 +154,8 @@ struct OMDBResponse: Codable {
         self.language = try? container.decode(String.self, forKey: .language)
         self.country = try? container.decode(String.self, forKey: .country)
         self.awards = try? container.decode(String.self, forKey: .awards)
-        self.poster = try? container.decode(String.self, forKey: .poster)
+        let poster = try? container.decode(String.self, forKey: .poster)
+        self.poster = poster == "N/A" ? nil : poster
         self.ratings = try? container.decode([Rating].self, forKey: .ratings)
         self.metascore = try? container.decode(String.self, forKey: .metascore)
         self.imdbRating = try? container.decode(String.self, forKey: .imdbRating)
