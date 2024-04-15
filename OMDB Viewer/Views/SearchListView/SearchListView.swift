@@ -17,6 +17,7 @@ struct SearchListView: View {
                 TextField("Search", text: $viewModel.searchTerm)
                     .lineLimit(1)
                     .textFieldStyle(.roundedBorder)
+                    .showClearButton($viewModel.searchTerm)
                     .padding(.all, 10)
                 
                 containedView()

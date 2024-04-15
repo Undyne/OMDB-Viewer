@@ -16,9 +16,10 @@ struct SearchListCellView: View {
         HStack(alignment: .top) {
             
             if let poster = movie.poster {
-                WebImage(url: URL(string: poster))
+                WebImage.init(url: URL(string: poster),
+                              content: { image in image }, 
+                              placeholder: { BlankPoster() })
                     .resizable()
-                    .indicator(.activity)
                     .scaledToFit()
                     .frame(width: 70, height: 100)
             } else {
@@ -29,6 +30,7 @@ struct SearchListCellView: View {
                 Text(movie.title)
                     .foregroundStyle(.black)
                     .font(.headline)
+                    .multilineTextAlignment(.leading)
                 Text("Released: \(movie.year)")
                     .foregroundStyle(.black)
                     .font(.body)

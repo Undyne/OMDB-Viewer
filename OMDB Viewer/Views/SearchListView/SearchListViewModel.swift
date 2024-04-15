@@ -52,6 +52,9 @@ class SearchListViewModel: ObservableObject {
     
     func loadMovies(_ term: String) async {
         guard !term.isEmpty else {
+            await MainActor.run { [weak self] in
+                self?.results = []
+            }
             return
         }
     
