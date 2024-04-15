@@ -18,10 +18,11 @@ class SearchListViewModel: ObservableObject {
     @Published var searchTerm: String = ""
     @Published var results: [SearchResult] = []
     @Published var state: ListState = .loaded
+    @Published var showError: Bool = false
 
     private var currentPage: Int = 1
     private var totalResults: Int? = nil
-    var errorMessage: String = ""
+    var errorMessage: String? = nil
     private var bag = Set<AnyCancellable>()
 
     init() {
@@ -71,10 +72,16 @@ class SearchListViewModel: ObservableObject {
                 } else {
                     self.results.append(contentsOf: response.search ?? [])
                 }
+                self.errorMessage = response.error
                 self.totalResults = response.totalResults
             }
         } catch {
             state = .error
+            showError.toggle()
         }
+    }
+    
+    var emptyListText: String {
+        errorMessage ?? "No movies found.  Please enter a search term above."
     }
 }

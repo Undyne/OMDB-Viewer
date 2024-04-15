@@ -27,6 +27,10 @@ struct SearchListView: View {
             }
             .padding(.horizontal)
             .navigationBarTitle("OMDb Movie Database", displayMode: .inline)
+            .alert(isPresented: $viewModel.showError) {
+                Alert(title: Text("Error"),
+                      message: Text("An error occured.  Please try again."))
+            }
         }
     }
     
@@ -43,7 +47,8 @@ struct SearchListView: View {
     var emptyList: some View {
         VStack(alignment: .center) {
             Spacer()
-            Text("No movies found")
+            Text(viewModel.emptyListText)
+                .multilineTextAlignment(.center)
             Spacer()
         }
     }

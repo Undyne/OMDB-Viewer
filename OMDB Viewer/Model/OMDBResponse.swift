@@ -106,6 +106,7 @@ struct OMDBResponse: Codable {
     let website: String?
     let totalResults: Int?
     let response: Bool
+    let error: String?
     
     enum CodingKeys: String, CodingKey {
         
@@ -136,6 +137,7 @@ struct OMDBResponse: Codable {
         case website = "Website"
         case totalResults
         case response = "Response"
+        case error = "Error"
     }
 
     init(from decoder: Decoder) throws {
@@ -175,6 +177,8 @@ struct OMDBResponse: Codable {
         
         let responseString = try container.decode(String.self, forKey: .response)
         self.response = responseString == "True"
+        self.error = try? container.decode(String.self, forKey: .error)
+
     }
     
     init(search: [SearchResult]? = nil,
@@ -231,6 +235,7 @@ struct OMDBResponse: Codable {
         self.website = website
         self.totalResults = totalResults
         self.response = true
+        self.error = nil
     }
     
     static var sharedMovieExample: OMDBResponse {
